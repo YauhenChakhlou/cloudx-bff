@@ -1,0 +1,26 @@
+[
+  {
+    "id": "7567book1b-b10c",
+    "title": "Javascript book",
+    "description": "The full guide for successfull Javascript development",
+    "price": 200
+  },
+  {
+    "id": "2345book2b-a54b",
+    "title": "Rust book",
+    "description": "The full guide for successfull Rust development",
+    "price": 240
+  },
+  {
+    "id": "1253book3b-e48h",
+    "title": "Go book",
+    "description": "The full guide for successfull Go development",
+    "price": 150
+  },
+  {
+    "id": "8526book4b-r37j",
+    "title": "Python book",
+    "description": "The full guide for successfull Python development",
+    "price": 120
+  }
+]
