@@ -1,0 +1,69 @@
+openapi: 3.0.3
+info:
+  title: Cloud X AWS - ReactShop - OpenAPI 3.0
+  description: |-
+    This is a sample Product Store API based on the OpenAPI 3.0 specification.
+  version: 0.1.0
+servers:
+  - url: https://6qo9r8r66k.execute-api.us-east-1.amazonaws.com/dev
+tags:
+  - name: product
+    description: Everything about your Product
+paths:
+  /products:
+    get:
+      tags:
+        - product
+      summary: List of all Products
+      description: List of all Products
+      operationId: getProductsList
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Product'
+  /products/{id}:
+    get:
+      tags:
+        - product
+      summary: Finds a Product by its ID
+      description: Finds a Product by its ID
+      operationId: getProductsById
+      parameters:
+        - name: id
+          in: path
+          description: Product ID
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Product found successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        '404':
+          description: Product with such ID was not found
+components:
+  schemas:
+      Product:
+        type: object
+        properties:
+          id:
+            type: string
+            example: '7567ec4b-b10c-48c5-9345-fc73c48a80aa'
+          title:
+            type: string
+            example: 'Greatest & Top Product'
+          description:
+            type: string
+            example: 'Full product decription'
+          price:
+            type: integer
+            format: int32
+            example: 150

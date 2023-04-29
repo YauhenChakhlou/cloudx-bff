@@ -1,0 +1,37 @@
+service: products-service
+
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  stage: dev
+  runtime: nodejs16.x
+  region: us-east-1
+  profile: 141231824993_Yauhen_Chakhlou
+
+package:
+  patterns:
+    - 'dist/**'
+    - '!lambdas/**'
+    - '!mocks/**'
+    - '!node_modules/**'
+    - '!vite.config.ts'
+    - '!*.json'
+    - '!*.mjs'
+
+functions:
+  getProductsList:
+    handler: dist/getProductsList.getProductsList
+    events:
+      - http:
+          path: /products
+          method: get
+          cors: true
+
+  getProductsById:
+    handler: dist/getProductsById.getProductsById
+    events:
+      - http:
+          path: /products/{id}
+          method: get
+          cors: true
